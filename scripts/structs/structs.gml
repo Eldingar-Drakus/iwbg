@@ -1,11 +1,8 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-
 /*
 data_struct: class
-attribute_1: rarity (data type: string)
-attribute_2: level (data type: string)
-attribute_3: bonuses (data type: an array of of two element arrays element 1 is a string and the second is a pointer)
+elements:	 rarity (data type: string)
+			 level (data type: string)
+			 bonuses(data type: 2d array with name of and pointer to bonus)
 */
 class = {
 
@@ -18,10 +15,10 @@ class = {
 }
 
 /*
-data_struct: profession
-attributetes:	rarity (string)
-				level (int)
-				bonuses( 2d array table with a string and pointer to bonueses gained)
+data_struct:	profession
+elementes:		rarity (data type: string)
+				level (data type: int)
+				bonuses(data type: 2d array with name of and pointer to bonus)
 
 */
 profession = {
@@ -30,154 +27,294 @@ profession = {
 	
 	level:0,
 	
-	bonuses:[["", 0]]
+	bonuses:[["", pointer_null]]
 
 }
 
 /*
-data_struct: character
-attributes: name (str)
-			titles (str)
-			age (int)
-			race (str)
-			total_level (int)
-			sub_level (int)
-			classes (array of classes)
-			professions (array of professions)
-			pools (2d array table of the different pools like health or mana)
-			attributes (2d array of all the attributes a standard awakens has)
-			free_attribute_points (int)
-			skill_points (int)
-			skills (2d array of a string of the name and the pointer to the skill)
-			abilities (2d array of a string and pointer pair linking ability name and ability data)
-			companions (2d array of a string and pointer pair listing the companion name and their data)
+data_struct:	attribute
+elements:		name (data type: string)
+				num_points (data type: int)
 */
-character = {
+attribute = {
 	
-	name:"",
+	rarity: "",
 	
-	titles:[""],
+	num_points: 0
+}
+
+/*
+data_struct:	pool
+elements:		name (data type: string)
+				pool_size (data type: int)
+*/
+pool = {
 	
-	age:0,
+	name: "",
 	
-	race:"",
+	pool_size: 0
+}
+
+/*
+data_struct:	skill
+elements:		name (data type: string)
+				level (data type: int)
+				affinity (data type: float between 0.00 & 1.00)
+				effects (data type: array of pointers to the descriptions of the effects of the skill)
+				mastered (data type: boolean)
+*/
+skill = {
 	
-	total_level:0
+	name: "",
 	
-	sub_level:0
+	level: 0,
 	
-	classes:[class],
+	affinity: 0.00,
 	
-	professions:[profession],
+	effects: [],
 	
-	pools:[["Health", 0], ["Stamina", 0], ["Mana", 0]],
+	mastered: false
+}
+
+/*
+data_struct:	awakened
+elements:		name (data type: string)
+				titles (data type: array of all the titles the awakened has
+				age (data type: float)
+				race (data type: string)
+				level (data type: int)
+				sub_level (data type: int)
+				attributes (data type: 1d array of attribute data_structures)
+				free_att_pnts (data type: int)
+				pools (data type: 1d array of pool data_sturctures)
+				class_slots (data type: int)
+				classes (data type: array of all the classes the awakened has)
+				prof_slots (data type: int)
+				profesions (data type: array of all the professions the awakened has)
+				skills (data type: array of all the skills the awakened has)
+				free_skill_pnts (data type: int)
+				companion_types (data type: array of all the companion types the awakend can have)
+				companions (data type: array of all the companions the awakend has)
+				
+*/
+awakened = {
 	
-	attributes: [["Strength", 0], ["Agility", 0], ["Dexterity", 0], ["Constitution", 0], ["Intelegence", 0], ["Wisdom", 0]],
+	name: "",
 	
-	free_attribute_points:0,
+	age: 0.00,
 	
-	skill_points:0,
+	race: "",
 	
-	skills:[["", pointer_null]],
+	attributes: [],
 	
-	abilites:[["", pointer_null]],
+	free_att_pnts: 0,
 	
-	companions:[["", pointer_null]]
+	pools: [],
+	
+	class_slots: 0,
+	
+	classes: [],
+	
+	prof_slots: 0,
+	
+	professions: [],
+	
+	skills: [],
+	
+	free_skill_pnts: 0,
+	
+	companion_types: [],
+
+	companions: []
 	
 }
 
-
-beasts = {
-
-	name:"",
+/*
+data_struct:	beast
+elements:		name (data type: string)
+				age (data type: float)
+				species (data type: string)
+				level (data type: int)
+				pools (data type: array of pools the beast has)
+				attributes (data type: array of all attributes the beast has unlocked)
+				free_atr_pnts (data type: int)
+				skills (data type: array of all skills beast owns)
+				free_skill_pnts (data type: int)
+				companion_t (data type: array of companion types the beast is)
+				companion (data type: array holding 1 element, the pointer to the beast's companion)
+				companion_name (data type: string)
+*/
+beast = {
 	
-	titles:[""],
+	name: "",
 	
-	age:0,
+	age: 0.00,
 	
-	race:"",
+	species: "",
 	
-	total_level:0
+	level: 0,
 	
+	pools: [],
 	
-	pools:[["Health", 0], ["Stamina", 0], ["Mana", 0]],
+	attributes: [],
 	
-	attributes: [["", 0]],
+	free_att_pnts: [],
 	
-	free_attribute_points:0,
+	skills: [],
 	
-	skill_points:0,
+	free_skill_pnts: 0,
 	
-	skills:[["", 0]],
+	companion_t: [],
 	
-	abilites:[["", 0]],
+	companion: [],
 	
-	companions:[["", pointer_null]]
-
+	companion_name: ""
 }
 
+/*
+data_struct:	spirit
+elements:		name (data type: string)
+				age (data type: float)
+				species (data type: string)
+				level (data type: int)
+				pools (data type: array of pools the spirit has)
+				attributes (data type: array of all attributes the spirit has unlocked)
+				free_atr_pnts (data type: int)
+				skills (data type: array of all skills spirit owns)
+				free_skill_pnts (data type: int)
+				companion_t (data type: array of companion types the spirit is)
+				companion (data type: array holding 1 element, the pointer to the spirit's companion)
+				companion_name (data type: string)
+				is_trial_s (data type: boolean)
+				trial (data type: single element array that holds a pointer to the trial spirit embodies)
+				trail_name (data type: string)
+*/
+spirit = {
+	
+	name: "",
+	
+	age: 0.00,
+	
+	species: "",
+	
+	level: 0,
+	
+	pools: [],
+	
+	attributes: [],
+	
+	free_att_pnts: [],
+	
+	skills: [],
+	
+	free_skill_pnts: 0,
+	
+	companion_t: [],
+	
+	companion: [],
+	
+	companion_name: "",
+	
+	is_trial_spirit: false
+	
+	trial: [],
+	
+	trial_name: ""
+}
 
+/*
+data_struct:	trial_keeper
+elements:		name (data type: string)
+				level (data type: int)
+				t_name (data type: string, the name of the trial)
+				t_type (data type: string, the type of the trial)
+				t_level (data type: int, level of the trial)
+				trial (data type: array of 1 element pointing to the trial)
+				patterns (data type: array listing all the patterns the keeper has access to)
+				sturctures (data type: array listing all the structures the keeper has access to)
+				servants (data type: 2d array listing all the servants the keeper has access to, and pointing to them)
+				guardians (data type: 2d arra listing all the guardians the keeper has access to, and pointing to them)
+*/
+trial_keeper = {
+	
+	name: "",
+	
+	level: 0,
+	
+	t_name: "",
+	
+	t_type: "",
+	
+	t_level: 0,
+	
+	trial: [pointer_null],
+	
+	patterns: [],
+	
+	structures: [],
+	
+	servants: [[]],
+	
+	guardians: [[]]
+}
+
+/*
+data_struct:	trial
+elements:		name (data type: string)
+				level (data type: int)
+				type (data type: string)
+				keeper (data type: array of 1 element pointing to the trial keeper)
+				k_name (data type: string, name of the trial keeper)
+				cur_loc (data type: 2 element array with the name of the current location and a pointer to it)
+				entrance_locs (data type: array of pointers the trial has entrances)
+*/
 trial = {
-
-	name:"",
 	
-	type:"",
+	name: "",
 	
-	keeper_ot:pointer_null,
+	level: 0,
 	
-	spirit_ot:pointer_null,
+	type: "",
 	
-	level:0,
+	keeper: [pointer_null],
 	
-	paterns:[""],
+	k_name: "",
 	
-	structures:[""],
+	cur_loc: ["", pointer_null],
 	
-	servants:["",]
-	
-	gaurdians:[pointer_null]
-
+	entrance_locs: [pointer_null]
 }
 
-keeper = {
-
-	name:"",
+/*
+data_struct		location
+elements:		name (data type: string)
+				terrain_t (data type: string, basic summation the terrain of the location)
+				level_r (data type: 2 element array holding ints of the low and high of the location)
+				creature_t (data type: array listing the types of creatures found in the area)
+				trial_ent (data type: array of pointers to entrances of the local trial)
+				linked_loc (data type: array of pointers to locations that are connected to this location)
+				cur_claimant (data type: string, name of person, country, or organization who owns the location)
+				claimants (data type: array of strings that list all people, governments, or organization that \
+							have a claim on the location)
+*/
+location = {
 	
-	position:"",
+	name: "",
 	
-	level:0,
+	terrain_t: "",
 	
-	trial_tended:pointer_null,
+	level_r: [0, 0],
 	
-	t_sprit:pointer_null
-
+	creature_t: [],
+	
+	trial_ent: [pointer_null],
+	
+	linked_loc: [pointer_null],
+	
+	cur_claimants: "",
+	
+	claimants: [""]
 }
-
-
-trial_spirit = {
-
-	name:"",
-	
-	position:"",
-	
-	level:0,
-	
-	trial_tended:pointer_null,
-	
-	t_sprit:pointer_null
-	
-
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
