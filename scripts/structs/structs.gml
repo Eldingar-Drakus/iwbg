@@ -125,7 +125,11 @@ awakened = {
 	
 	companion_types: [],
 
-	companions: []
+	companions: [],
+	
+	party: [],
+	
+	pacts: []
 	
 }
 
@@ -168,7 +172,12 @@ beast = {
 	
 	companion: [],
 	
-	companion_name: ""
+	companion_name: "",
+	
+	party: [],
+	
+	pacts: []
+	
 }
 
 /*
@@ -219,7 +228,12 @@ spirit = {
 	
 	trial: [],
 	
-	trial_name: ""
+	trial_name: "",
+	
+	party: [],
+	
+	pacts: []
+	
 }
 
 /*
