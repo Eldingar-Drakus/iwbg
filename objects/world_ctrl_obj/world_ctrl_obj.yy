@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Object1",
+  "name": "world_ctrl_obj",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],

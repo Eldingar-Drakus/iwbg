@@ -5,12 +5,14 @@ elements:	 rarity (data type: string)
 			 bonuses(data type: 2d array with name of and pointer to bonus)
 */
 class = {
+	
+	name: "",
 
-	rarity:"",
+	rarity: "",
 	
-	level:0,
+	level: 0,
 	
-	bonuses:[["", pointer_null]]
+	bonuses: [["", pointer_null]]
 
 }
 
@@ -22,12 +24,14 @@ elementes:		rarity (data type: string)
 
 */
 profession = {
-
-	rarity:"",
 	
-	level:0,
+	name: "",
 	
-	bonuses:[["", pointer_null]]
+	rarity: "",
+	
+	level: 0,
+	
+	bonuses: [["", pointer_null]]
 
 }
 
@@ -38,7 +42,9 @@ elements:		name (data type: string)
 */
 attribute = {
 	
-	rarity: "",
+	name: "",
+	
+	is_secondary: false,
 	
 	num_points: 0
 }
@@ -95,7 +101,8 @@ elements:		name (data type: string)
 				free_skill_pnts (data type: int)
 				companion_types (data type: array of all the companion types the awakend can have)
 				companions (data type: array of all the companions the awakend has)
-				
+				party (data type: pointer to the party the awakened is part of)
+				pacts (data type: array listing all the pacts the awakend is a part of)
 */
 awakened = {
 	
@@ -147,6 +154,8 @@ elements:		name (data type: string)
 				companion_t (data type: array of companion types the beast is)
 				companion (data type: array holding 1 element, the pointer to the beast's companion)
 				companion_name (data type: string)
+				party (data type: pointer to the party the beast is part of)
+				pacts (data type: array listing all the pacts the beast is a part of)
 */
 beast = {
 	
@@ -197,6 +206,8 @@ elements:		name (data type: string)
 				is_trial_s (data type: boolean)
 				trial (data type: single element array that holds a pointer to the trial spirit embodies)
 				trail_name (data type: string)
+				party (data type: pointer to the party the spirit is part of)
+				pacts (data type: array listing all the pacts the spirit is a part of)
 */
 spirit = {
 	
@@ -253,6 +264,8 @@ trial_keeper = {
 	
 	name: "",
 	
+	race: "",
+	
 	level: 0,
 	
 	t_name: "",
@@ -261,7 +274,7 @@ trial_keeper = {
 	
 	t_level: 0,
 	
-	trial: [pointer_null],
+	trial: [],
 	
 	patterns: [],
 	
@@ -296,7 +309,7 @@ trial = {
 	
 	cur_loc: ["", pointer_null],
 	
-	entrance_locs: [pointer_null]
+	entrance_locs: [[pointer_null]]
 }
 
 /*
@@ -321,16 +334,45 @@ location = {
 	
 	creature_t: [],
 	
-	trial_ent: [pointer_null],
+	trial_ents: [pointer_null],
 	
-	linked_loc: [pointer_null],
+	linked_locs: [pointer_null],
 	
-	cur_claimants: "",
+	cur_ruler: "",
 	
 	claimants: [""]
 }
 
+/*
+data_struct:	party
+elements:		leader_name (data type: string)
+				members (data type: list pointing to all party members)
+*/
+party = {
+	
+	leader_name: "",
+	
+	members: []
+}
 
+/*
+data_struct:	pact
+elements:		name (data type: string)
+				type (data type: string)
+				pact_specs (data type: an string containing the details of the pact)
+				signatories ( data type: list of pointers to people of the pact
+*/
+pact = {
+	
+	name: "",
+	
+	type: "",
+	
+	pact_specs: "",
+	
+	signatories: []
+	
+}
 
 
 

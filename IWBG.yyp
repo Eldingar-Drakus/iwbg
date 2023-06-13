@@ -33,8 +33,11 @@
     "IDEVersion": "2023.4.0.84",
   },
   "resources": [
-    {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},},
+    {"id":{"name":"start_screen_ctrl_obj","path":"objects/start_screen_ctrl_obj/start_screen_ctrl_obj.yy",},},
     {"id":{"name":"structs","path":"scripts/structs/structs.yy",},},
+    {"id":{"name":"battle_ctrl_obj","path":"objects/battle_ctrl_obj/battle_ctrl_obj.yy",},},
+    {"id":{"name":"cr_script","path":"scripts/cr_script/cr_script.yy",},},
+    {"id":{"name":"world_ctrl_obj","path":"objects/world_ctrl_obj/world_ctrl_obj.yy",},},
     {"id":{"name":"test_zone","path":"rooms/test_zone/test_zone.yy",},},
   ],
   "RoomOrderNodes": [
