@@ -82,6 +82,18 @@ skill = {
 	mastered: false
 }
 
+ability = {
+	
+	name: "",
+	
+	level: 0,
+	
+	effects: [],
+	
+	can_level: false
+
+}
+
 /*
 data_struct:	awakened
 elements:		name (data type: string)
@@ -128,13 +140,17 @@ awakened = {
 	
 	skills: [],
 	
+	abilities: [],
+	
+	inventory: [],
+	
 	free_skill_pnts: 0,
 	
 	companion_types: [],
 
 	companions: [],
 	
-	party: [],
+	cur_party: [],
 	
 	pacts: []
 	
@@ -175,6 +191,10 @@ beast = {
 	
 	skills: [],
 	
+	abilities: [],
+	
+	inventory: [],
+	
 	free_skill_pnts: 0,
 	
 	companion_t: [],
@@ -183,7 +203,7 @@ beast = {
 	
 	companion_name: "",
 	
-	party: [],
+	cur_party: [],
 	
 	pacts: []
 	
@@ -227,6 +247,10 @@ spirit = {
 	
 	skills: [],
 	
+	abilities: [],
+	
+	inventory: [],
+	
 	free_skill_pnts: 0,
 	
 	companion_t: [],
@@ -235,15 +259,18 @@ spirit = {
 	
 	companion_name: "",
 	
-	is_trial_spirit: false
-	
-	trial: [],
-	
-	trial_name: "",
-	
-	party: [],
+	cur_party: [],
 	
 	pacts: []
+	
+}
+
+trial_spirit = {
+	
+	trial_name: "",
+	ts_trial: [],
+	keeper_name: "", 
+	ts_keeper: []
 	
 }
 
@@ -274,7 +301,11 @@ trial_keeper = {
 	
 	t_level: 0,
 	
-	trial: [],
+	tk_trial: [],
+	
+	ts_name: ""
+	
+	t_spirit: []
 	
 	patterns: [],
 	
@@ -303,6 +334,8 @@ trial = {
 	
 	type: "",
 	
+	level_range: [0, 0]
+	
 	keeper: [pointer_null],
 	
 	k_name: "",
@@ -310,6 +343,18 @@ trial = {
 	cur_loc: ["", pointer_null],
 	
 	entrance_locs: [[pointer_null]]
+}
+
+puzzel = {
+
+	rooms: 0,
+
+} 
+
+standard = {
+
+	floors: 0,
+
 }
 
 /*
@@ -338,7 +383,7 @@ location = {
 	
 	linked_locs: [pointer_null],
 	
-	cur_ruler: "",
+	cur_ruller: "",
 	
 	claimants: [""]
 }
@@ -374,6 +419,48 @@ pact = {
 	
 }
 
+item = {
+	
+	name: "",
+	type: "",
+	value: [{copper: 0.00}, {silver: 0.00}, {gold: 0.00}],
+	rarity: 0,
+	quality: "",
+	description: "",
+	
+}
+
+material = {
+
+	effects: [],
+	
+}
+
+consumable = {
+	
+	effects: [],
+	total_ur: [0, 0]
+	
+}
+
+equipment = {
+	
+	named: false,
+	skill_used: "",
+	skill_present: false,
+	props: [],
+	stats: [],
+	stats_req: [],
+	enchants: [],
+
+}
+
+soul_bound = {
+
+	bound: false,
+	bound_to: [pointer_null]
+
+}
 
 
 

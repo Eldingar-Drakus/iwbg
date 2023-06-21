@@ -4,5 +4,6 @@
     {"name":"battle_ctrl_obj","order":2,"path":"objects/battle_ctrl_obj/battle_ctrl_obj.yy",},
     {"name":"cr_script","order":1,"path":"scripts/cr_script/cr_script.yy",},
     {"name":"world_ctrl_obj","order":1,"path":"objects/world_ctrl_obj/world_ctrl_obj.yy",},
+    {"name":"rand_create","order":2,"path":"scripts/rand_create/rand_create.yy",},
   ],
 }

@@ -38,6 +38,7 @@
     {"id":{"name":"battle_ctrl_obj","path":"objects/battle_ctrl_obj/battle_ctrl_obj.yy",},},
     {"id":{"name":"cr_script","path":"scripts/cr_script/cr_script.yy",},},
     {"id":{"name":"world_ctrl_obj","path":"objects/world_ctrl_obj/world_ctrl_obj.yy",},},
+    {"id":{"name":"rand_create","path":"scripts/rand_create/rand_create.yy",},},
     {"id":{"name":"test_zone","path":"rooms/test_zone/test_zone.yy",},},
   ],
   "RoomOrderNodes": [

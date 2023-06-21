@@ -1,0 +1,3 @@
+function rand_create(){
+
+}
